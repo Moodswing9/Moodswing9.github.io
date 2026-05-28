@@ -29,7 +29,7 @@ Everything is in `index.html`. Structure:
 | `<head>` | GA4, SEO meta, Open Graph, Twitter Card, Google Fonts, all CSS in `<style>` |
 | Nav | Fixed top bar — logo + GitHub link |
 | Hero | Name, title, CTA buttons, avatar |
-| Featured Work | 4 project cards (networker-ppdm, claude-deck-generator, ppdm-es-troubleshooter, ppdm-watch) |
+| Featured Work | 5 project cards (backup-log-analyzer, networker-ppdm, claude-deck-generator, ppdm-es-troubleshooter, ppdm-watch) |
 | GitHub Repositories | Repo cards with tags and descriptions |
 | Stats bar | Live GitHub stats (repos, stars) fetched from GitHub API |
 | Footer | Links |
