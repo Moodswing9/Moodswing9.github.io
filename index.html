@@ -799,7 +799,7 @@ footer {
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="repo-release">v2.7.0</span>
+          <span class="repo-release" id="ver-networker-ppdm">v2.8.0</span>
           <span class="repo-badge">Claude Opus 4.7</span>
         </div>
       </a>
@@ -823,7 +823,7 @@ footer {
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="repo-release">v4.6.0</span>
+          <span class="repo-release" id="ver-claude-deck-generator">v4.6.0</span>
           <span class="repo-badge">Claude Opus 4.7</span>
         </div>
       </a>
@@ -847,7 +847,7 @@ footer {
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#f1e05a;"></span>JavaScript</span>
-          <span class="repo-release">v1.4.0</span>
+          <span class="repo-release" id="ver-ppdm-es-troubleshooter">v1.4.0</span>
           <span class="repo-badge">Claude Haiku</span>
         </div>
       </a>
@@ -872,7 +872,7 @@ footer {
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="repo-release">v1.3.0</span>
+          <span class="repo-release" id="ver-ppdm-watch">v1.3.0</span>
           <span class="repo-badge">Claude Haiku</span>
         </div>
       </a>
@@ -896,7 +896,7 @@ footer {
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#3178c6;"></span>TypeScript</span>
-          <span class="repo-release">v0.4.0</span>
+          <span class="repo-release" id="ver-backup-log-analyzer">v0.4.0</span>
           <span class="repo-badge live">Live</span>
         </div>
       </a>
@@ -911,7 +911,7 @@ footer {
           </span>
           <span class="repo-arrow">↗</span>
         </div>
-        <p class="repo-desc">MCP server that exposes Dell EMC PPDM and NetWorker as Claude Code tools — 9 tools covering job monitoring, asset listing, policy management, on-demand backup triggering, SLA compliance, and system health. Install once, query your backup infrastructure from any Claude session.</p>
+        <p class="repo-desc">MCP server that exposes Dell EMC PPDM and NetWorker as Claude Code tools — 15 tools (9 PPDM + 6 NetWorker) covering job monitoring, asset listing, saveset queries, policy management, on-demand backup triggering, SLA compliance, and system health. Install once, query your backup infrastructure from any Claude session.</p>
         <div class="repo-tags">
           <span class="repo-tag">TypeScript</span>
           <span class="repo-tag">MCP</span>
@@ -921,7 +921,7 @@ footer {
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#3178c6;"></span>TypeScript</span>
-          <span class="repo-release">v1.0.0</span>
+          <span class="repo-release" id="ver-ppdm-mcp-server">v1.0.0</span>
           <span class="repo-badge">MCP Server</span>
         </div>
       </a>
@@ -990,6 +990,29 @@ footer {
       if (reposEl) reposEl.textContent = user.public_repos;
       if (starsEl) starsEl.textContent = stars;
     } catch (_) { /* silently keep fallback values */ }
+  })();
+
+  // Live version badges — fetch latest release tag for each repo
+  (async () => {
+    const watched = [
+      'networker-ppdm',
+      'claude-deck-generator',
+      'ppdm-es-troubleshooter',
+      'ppdm-watch',
+      'backup-log-analyzer',
+      'ppdm-mcp-server',
+    ];
+    await Promise.all(watched.map(async repo => {
+      try {
+        const res = await fetch(`https://api.github.com/repos/Moodswing9/${repo}/releases/latest`);
+        if (!res.ok) return;
+        const data = await res.json();
+        const tag = data.tag_name;
+        if (!tag) return;
+        const el = document.getElementById(`ver-${repo}`);
+        if (el) el.textContent = tag.startsWith('v') ? tag : `v${tag}`;
+      } catch (_) { /* keep hardcoded fallback */ }
+    }));
   })();
 </script>
 </body>
