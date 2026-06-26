@@ -799,7 +799,7 @@ footer {
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="repo-release" id="ver-networker-ppdm">v2.9.0</span>
+          <span class="repo-release" id="ver-networker-ppdm">v3.0.0</span>
           <span class="repo-badge">Claude Opus 4.7</span>
         </div>
       </a>
@@ -911,20 +911,45 @@ footer {
           </span>
           <span class="repo-arrow">↗</span>
         </div>
-        <p class="repo-desc">MCP server that exposes Dell EMC PPDM and NetWorker as Claude Code tools — 15 tools (9 PPDM + 6 NetWorker) covering job monitoring, asset listing, saveset queries, policy management, on-demand backup triggering, SLA compliance, and system health. Install once, query your backup infrastructure from any Claude session.</p>
+        <p class="repo-desc">MCP server that exposes Dell EMC PPDM, NetWorker, and Data Domain as Claude Code tools — 22 tools (10 PPDM + 6 NetWorker + 6 Data Domain) covering job monitoring, saveset queries, DDBoost management, capacity checks, restore triggering, SLA compliance, and poll-until-complete. The full Dell EMC trilogy in one install.</p>
         <div class="repo-tags">
           <span class="repo-tag">TypeScript</span>
           <span class="repo-tag">MCP</span>
           <span class="repo-tag">PPDM</span>
           <span class="repo-tag">NetWorker</span>
-          <span class="repo-tag">Claude Code</span>
+          <span class="repo-tag">Data Domain</span>
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#3178c6;"></span>TypeScript</span>
-          <span class="repo-release" id="ver-ppdm-mcp-server">v2.0.0</span>
+          <span class="repo-release" id="ver-ppdm-mcp-server">v3.0.0</span>
           <span class="repo-badge">MCP Server</span>
         </div>
       </a>
+
+      <!-- ppdm-alert-bot -->
+      <a href="https://github.com/Moodswing9/ppdm-alert-bot" target="_blank" class="repo-card">
+        <div class="repo-card-top">
+          <span class="repo-name">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 010-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"/></svg>
+            ppdm-alert-bot
+          </span>
+          <span class="repo-arrow">↗</span>
+        </div>
+        <p class="repo-desc">Webhook receiver and MCP server for Dell EMC PPDM and NetWorker — classifies every event as 🔴 CRITICAL / 🟡 WARNING / 🟢 INFO and forwards structured alerts to Slack or Microsoft Teams. 3 MCP tools: test alerts, inspect config, dry-run classify any payload.</p>
+        <div class="repo-tags">
+          <span class="repo-tag">TypeScript</span>
+          <span class="repo-tag">Webhooks</span>
+          <span class="repo-tag">Slack</span>
+          <span class="repo-tag">Teams</span>
+          <span class="repo-tag">MCP</span>
+        </div>
+        <div class="repo-meta">
+          <span class="repo-lang"><span class="repo-lang-dot" style="background:#3178c6;"></span>TypeScript</span>
+          <span class="repo-release" id="ver-ppdm-alert-bot">v1.0.0</span>
+          <span class="repo-badge">MCP Server</span>
+        </div>
+      </a>
+
       <!-- Moodswing9.github.io -->
       <a href="https://github.com/Moodswing9/Moodswing9.github.io" target="_blank" class="repo-card">
         <div class="repo-card-top">
@@ -953,7 +978,7 @@ footer {
 
   <div class="stats">
     <div class="stat">
-      <span class="stat-num" id="stat-repos">7</span>
+      <span class="stat-num" id="stat-repos">8</span>
       <span class="stat-label">Public Repos</span>
     </div>
     <div class="stat">
@@ -1001,6 +1026,7 @@ footer {
       'ppdm-watch',
       'backup-log-analyzer',
       'ppdm-mcp-server',
+      'ppdm-alert-bot',
     ];
     await Promise.all(watched.map(async repo => {
       try {
