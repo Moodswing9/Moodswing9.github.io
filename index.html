@@ -756,7 +756,7 @@ footer {
       <span class="card-title">ppdmwatch</span>
       <span class="card-arrow">↗</span>
     </div>
-    <p class="card-desc">The <code style="color:var(--accent);font-size:0.8rem;">nsrwatch</code> equivalent for Dell PowerProtect Data Manager. Live terminal dashboard — job health, storage, running sessions, color-coded alerts. Trend-based predictive alerting fires Claude Haiku when failures or storage % climb 3 polls in a row. Claude Code plugin — <code style="color:var(--accent);font-size:0.78rem;">/ppdm-status</code> delivers an AI briefing from daemon logs without leaving your terminal.</p>
+    <p class="card-desc">The <code style="color:var(--accent);font-size:0.8rem;">nsrwatch</code> equivalent for Dell PowerProtect Data Manager. Live terminal dashboard — job health, storage, running sessions, color-coded alerts. <code style="color:var(--accent);font-size:0.78rem;">--mcp</code> flag exposes 4 live Claude Code tools (job counts, storage %, alerts, health) without a TUI. Trend-based predictive alerting fires Claude Opus 4.7 when failures or storage % climb 3 polls in a row.</p>
     <div class="card-tags">
       <span class="tag">Python</span>
       <span class="tag">PPDM</span>
@@ -861,7 +861,7 @@ footer {
           </span>
           <span class="repo-arrow">↗</span>
         </div>
-        <p class="repo-desc">Real-time terminal monitoring dashboard for Dell PowerProtect Data Manager — the <code style="color:var(--accent);font-size:0.75rem;">nsrwatch</code> equivalent for PPDM. Live curses TUI, background daemon, rotating logs, Claude Haiku AI summaries with structured tool calling. Trend-based predictive alerting fires when failed jobs or storage % climb 3 polls in a row. Pytest suite included.</p>
+        <p class="repo-desc">Real-time terminal monitoring dashboard for Dell PowerProtect Data Manager — the <code style="color:var(--accent);font-size:0.75rem;">nsrwatch</code> equivalent for PPDM. Live curses TUI, background daemon, rotating logs, Claude Opus 4.7 AI summaries. MCP bridge mode (<code style="color:var(--accent);font-size:0.75rem;">--mcp</code>) exposes 4 live Claude Code tools over stdio. Trend-based predictive alerting. 30 pytest tests.</p>
         <div class="repo-tags">
           <span class="repo-tag">Python</span>
           <span class="repo-tag">PPDM</span>
@@ -872,8 +872,8 @@ footer {
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="repo-release" id="ver-ppdm-watch">v1.3.0</span>
-          <span class="repo-badge">Claude Haiku</span>
+          <span class="repo-release" id="ver-ppdm-watch">v2.0.0</span>
+          <span class="repo-badge">Claude Opus 4.7</span>
         </div>
       </a>
 
