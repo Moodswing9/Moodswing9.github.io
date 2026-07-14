@@ -695,12 +695,13 @@ footer {
       <span class="card-title">Backup Log Analyzer</span>
       <span class="card-arrow">↗</span>
     </div>
-    <p class="card-desc">Paste any backup or infrastructure log — PPDM, NetWorker, Data Domain, Veeam, or syslog. 12-pattern offline taxonomy classifies known PPDM/NetWorker/Data Domain errors instantly (no AI call). Unknown patterns fall through to Claude Opus 4.7 streaming. Diff Mode compares two captures to surface regressions. Live SaaS and Claude Code plugin — <code style="color:var(--accent);font-size:0.78rem;">/analyze-log</code> brings the same analysis to your terminal.</p>
+    <p class="card-desc">Paste any backup or infrastructure log — PPDM, NetWorker, Data Domain, Veeam, or syslog. 12-pattern offline taxonomy classifies known errors instantly (no AI call). Unknown patterns fall through to Claude Opus 4.7 streaming. Diff Mode compares two captures to surface regressions. Batch Mode analyzes up to 5 files in one run. Live SaaS and Claude Code plugin — <code style="color:var(--accent);font-size:0.78rem;">/analyze-log</code> brings the same analysis to your terminal.</p>
     <div class="card-tags">
       <span class="tag">Next.js</span>
       <span class="tag">Claude Opus 4.7</span>
       <span class="tag">Streaming</span>
       <span class="tag">Diff Mode</span>
+      <span class="tag">Batch Mode</span>
       <span class="tag">Claude Code Plugin</span>
     </div>
   </a>
@@ -886,7 +887,7 @@ footer {
           </span>
           <span class="repo-arrow">↗</span>
         </div>
-        <p class="repo-desc">Live SaaS tool — 12-pattern offline taxonomy classifies known PPDM/NetWorker/Data Domain errors instantly; unknown patterns stream to Claude Opus 4.7. Single-log and Diff Mode. Server-side PII redaction, per-IP rate limiting, prompt caching. Next.js 16, Tailwind. Deployed on Vercel.</p>
+        <p class="repo-desc">Live SaaS tool — 12-pattern offline taxonomy classifies known PPDM/NetWorker/Data Domain errors instantly; unknown patterns stream to Claude Opus 4.7. Single-log, Diff Mode, and Batch Mode (up to 5 files). Server-side PII redaction, per-IP rate limiting, prompt caching. Next.js 16, Tailwind. Deployed on Vercel.</p>
         <div class="repo-tags">
           <span class="repo-tag">Next.js</span>
           <span class="repo-tag">TypeScript</span>
@@ -896,7 +897,7 @@ footer {
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#3178c6;"></span>TypeScript</span>
-          <span class="repo-release" id="ver-backup-log-analyzer">v0.5.0</span>
+          <span class="repo-release" id="ver-backup-log-analyzer">v0.6.0</span>
           <span class="repo-badge live">Live</span>
         </div>
       </a>
@@ -911,7 +912,7 @@ footer {
           </span>
           <span class="repo-arrow">↗</span>
         </div>
-        <p class="repo-desc">MCP server that exposes Dell EMC PPDM, NetWorker, and Data Domain as Claude Code tools — 25 tools (13 PPDM + 6 NetWorker + 6 Data Domain) covering job monitoring, bulk operations, single-call restore, saveset queries, DDBoost management, capacity checks, and SLA compliance. The full Dell EMC trilogy in one install.</p>
+        <p class="repo-desc">MCP server that exposes Dell EMC PPDM, NetWorker, and Data Domain as Claude Code tools — 29 tools (13 PPDM + 6 NetWorker + 6 Data Domain) covering job monitoring, bulk operations, single-call restore, schedule management (pause/resume/update policies), saveset queries, DDBoost management, capacity checks, and SLA compliance. The full Dell EMC trilogy in one install.</p>
         <div class="repo-tags">
           <span class="repo-tag">TypeScript</span>
           <span class="repo-tag">MCP</span>
@@ -921,7 +922,7 @@ footer {
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#3178c6;"></span>TypeScript</span>
-          <span class="repo-release" id="ver-ppdm-mcp-server">v3.1.0</span>
+          <span class="repo-release" id="ver-ppdm-mcp-server">v4.0.0</span>
           <span class="repo-badge">MCP Server</span>
         </div>
       </a>
@@ -935,7 +936,7 @@ footer {
           </span>
           <span class="repo-arrow">↗</span>
         </div>
-        <p class="repo-desc">Webhook receiver and MCP server for Dell EMC PPDM and NetWorker — classifies every event as 🔴 CRITICAL / 🟡 WARNING / 🟢 INFO and forwards structured alerts to Slack or Microsoft Teams. Proactive SLA polling. 4 MCP tools: test alerts, inspect config, classify any payload, check SLA now.</p>
+        <p class="repo-desc">Webhook receiver and MCP server for Dell EMC PPDM and NetWorker — classifies every event as 🔴 CRITICAL / 🟡 WARNING / 🟢 INFO and forwards structured alerts to Slack, Microsoft Teams, PagerDuty, and email. Daily email digest. Proactive SLA polling. 4 MCP tools: test alerts, inspect config, classify any payload, check SLA now.</p>
         <div class="repo-tags">
           <span class="repo-tag">TypeScript</span>
           <span class="repo-tag">Webhooks</span>
@@ -945,8 +946,31 @@ footer {
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#3178c6;"></span>TypeScript</span>
-          <span class="repo-release" id="ver-ppdm-alert-bot">v1.1.0</span>
+          <span class="repo-release" id="ver-ppdm-alert-bot">v1.2.0</span>
           <span class="repo-badge">MCP Server</span>
+        </div>
+      </a>
+
+      <!-- ppdm-capacity-planner -->
+      <a href="https://github.com/Moodswing9/ppdm-capacity-planner" target="_blank" class="repo-card">
+        <div class="repo-card-top">
+          <span class="repo-name">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 010-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"/></svg>
+            ppdm-capacity-planner
+          </span>
+          <span class="repo-arrow">↗</span>
+        </div>
+        <p class="repo-desc">Claude Opus 4.7-powered capacity forecasting for Dell EMC PPDM storage systems. Fetches live storage-system data, generates 80%/95% breach projections, dedup/tiering/expansion recommendations, and an executive summary narrative. Supports <code style="color:var(--accent);font-size:0.75rem;">--demo</code> mode for testing without a live PPDM instance.</p>
+        <div class="repo-tags">
+          <span class="repo-tag">Python</span>
+          <span class="repo-tag">Claude Opus 4.7</span>
+          <span class="repo-tag">PPDM</span>
+          <span class="repo-tag">Forecasting</span>
+          <span class="repo-tag">Plugin</span>
+        </div>
+        <div class="repo-meta">
+          <span class="repo-lang"><span class="repo-lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span class="repo-release" id="ver-ppdm-capacity-planner">v1.0.0</span>
         </div>
       </a>
 
@@ -978,7 +1002,7 @@ footer {
 
   <div class="stats">
     <div class="stat">
-      <span class="stat-num" id="stat-repos">8</span>
+      <span class="stat-num" id="stat-repos">9</span>
       <span class="stat-label">Public Repos</span>
     </div>
     <div class="stat">
@@ -1027,6 +1051,7 @@ footer {
       'backup-log-analyzer',
       'ppdm-mcp-server',
       'ppdm-alert-bot',
+      'ppdm-capacity-planner',
     ];
     await Promise.all(watched.map(async repo => {
       try {
