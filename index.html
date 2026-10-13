@@ -201,7 +201,9 @@ nav {
 
 h1 {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(2.8rem, 8vw, 5rem);
+  /* "Moodswing9" is one unbreakable word, ~10.2em wide in Syne 800. 3.4rem keeps it
+     beside the 160px avatar in the 796px column; narrower screens scale to fit. */
+  font-size: min(3.4rem, calc((100vw - 4rem) / 10.8));
   font-weight: 800;
   color: var(--white);
   line-height: 1.0;
@@ -238,9 +240,12 @@ h1 .dim { color: var(--muted); }
   to   { box-shadow: 0 0 60px rgba(168,85,247,0.32), 0 0 0 8px rgba(168,85,247,0.08); }
 }
 
-@media (max-width: 600px) {
+/* Below the full column width there is no room beside the avatar — stack it above */
+@media (max-width: 860px) {
   .hero-text { min-width: 0; }
   .hero-inner { flex-direction: column-reverse; align-items: flex-start; }
+}
+@media (max-width: 600px) {
   .hero-avatar img { width: 100px; height: 100px; }
 }
 
