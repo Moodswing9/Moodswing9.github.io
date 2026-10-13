@@ -9,6 +9,18 @@
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9BM08V94LW"></script>
   <script>
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.copy);
+        btn.textContent = 'copied';
+      } catch (_) {
+        btn.textContent = 'select text';
+      }
+      setTimeout(() => { btn.textContent = 'copy'; }, 1500);
+    });
+  });
+
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -17,7 +29,7 @@
 
   <!-- SEO -->
   <meta name="description" content="Moodswing9 — developer building open-source tools for Dell EMC backup infrastructure (PPDM, NetWorker, Data Domain) and AI-powered automation. Live SaaS tools, terminal dashboards, REST API clients, diagnostic tools, and presentation generators.">
-  <meta name="keywords" content="PPDM, PowerProtect Data Manager, NetWorker, Data Domain, Elasticsearch troubleshooter, backup automation, Python REST API, AI presentation generator, backup log analyzer, Next.js, Claude AI, Dell EMC, DevOps, ppdmwatch, nsrwatch, terminal monitoring, TUI dashboard, SaaS">
+  <meta name="keywords" content="PPDM, PowerProtect Data Manager, NetWorker, Data Domain, Elasticsearch troubleshooter, backup automation, Python REST API, AI presentation generator, backup log analyzer, Next.js, Claude AI, Dell EMC, DevOps, ppdmwatch, nsrwatch, terminal monitoring, TUI dashboard, SaaS, Claude Code plugins, plugin marketplace">
   <meta name="author" content="Moodswing9">
   <link rel="canonical" href="https://moodswing9.github.io/">
 
@@ -399,6 +411,79 @@ h1 .dim { color: var(--muted); }
   color: var(--accent);
 }
 
+/* ── Install (Claude Code plugin marketplace) ── */
+.install {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+}
+.install-intro {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+.install-intro a { color: var(--accent); text-decoration: none; }
+.install-intro a:hover { text-decoration: underline; }
+.install-cmd {
+  position: relative;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem 4.5rem 1rem 1.2rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+.install-cmd pre {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: var(--white);
+  white-space: pre;
+}
+.install-cmd .prompt { color: var(--accent); user-select: none; }
+.install-cmd .comment { color: var(--muted); }
+.copy-btn {
+  position: absolute;
+  top: 0.7rem; right: 0.7rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.25rem 0.55rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.copy-btn:hover, .copy-btn:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+.plugin-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 600px) {
+  .install { padding: 1.4rem; }
+  .plugin-list { grid-template-columns: 1fr; }
+}
+.plugin-list li {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.plugin-list code {
+  color: var(--accent);
+  font-size: 0.75rem;
+  margin-right: 0.4rem;
+}
+
 /* ── GitHub Repositories section ── */
 .repos-grid {
   display: grid;
@@ -771,6 +856,34 @@ footer {
 
   </section>
 
+  <!-- Install -->
+
+  <section class="section" style="padding-top:0; animation-delay:0.7s;" id="install">
+    <div class="section-header">
+      <span class="section-label">// install in claude code</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="install">
+      <p class="install-intro">Six of these tools ship as Claude Code plugins from one marketplace, <a href="https://github.com/Moodswing9/claude-plugins" target="_blank">Moodswing9/claude-plugins</a>. Add it once, then install whichever plugins you need. Each one brings its skills, slash commands and agents.</p>
+
+      <div class="install-cmd">
+        <button class="copy-btn" type="button" data-copy="claude plugin marketplace add Moodswing9/claude-plugins&#10;claude plugin install networker-ppdm@moodswing9">copy</button>
+<pre><span class="prompt">$ </span>claude plugin marketplace add Moodswing9/claude-plugins
+<span class="prompt">$ </span>claude plugin install networker-ppdm@moodswing9   <span class="comment"># or any plugin below</span></pre>
+      </div>
+
+      <ul class="plugin-list">
+        <li><code>networker-ppdm</code>NetWorker, PPDM &amp; Data Domain — 13 commands, 2 agents</li>
+        <li><code>backup-log-analyzer</code><span>/analyze-log</span> — root causes and fix commands</li>
+        <li><code>ppdm-es-troubleshooter</code><span>/es-diagnose</span>, <span>/ppdm-check</span></li>
+        <li><code>ppdm-watch</code><span>/ppdm-status</span> — AI briefing from daemon logs</li>
+        <li><code>ppdm-capacity-planner</code>80% / 95% storage breach forecasts</li>
+        <li><code>deck-generator</code><span>/deck</span>, <span>/deck-remix</span> — presentations</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- GitHub Repositories -->
 
   <section class="section" style="padding-top:0; animation-delay:0.75s;">
@@ -800,7 +913,7 @@ footer {
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="repo-release" id="ver-networker-ppdm">v3.3.0</span>
+          <span class="repo-release" id="ver-networker-ppdm">v3.3.1</span>
           <span class="repo-badge">Claude Opus 4.7</span>
         </div>
       </a>
@@ -824,7 +937,7 @@ footer {
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="repo-release" id="ver-claude-deck-generator">v4.6.0</span>
+          <span class="repo-release" id="ver-claude-deck-generator">v4.6.1</span>
           <span class="repo-badge">Claude Opus 4.7</span>
         </div>
       </a>
@@ -848,7 +961,7 @@ footer {
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#f1e05a;"></span>JavaScript</span>
-          <span class="repo-release" id="ver-ppdm-es-troubleshooter">v1.4.0</span>
+          <span class="repo-release" id="ver-ppdm-es-troubleshooter">v1.4.1</span>
           <span class="repo-badge">Claude Haiku</span>
         </div>
       </a>
@@ -873,7 +986,7 @@ footer {
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="repo-release" id="ver-ppdm-watch">v2.1.0</span>
+          <span class="repo-release" id="ver-ppdm-watch">v2.1.1</span>
           <span class="repo-badge">Claude Opus 4.7</span>
         </div>
       </a>
@@ -897,7 +1010,7 @@ footer {
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#3178c6;"></span>TypeScript</span>
-          <span class="repo-release" id="ver-backup-log-analyzer">v0.7.2</span>
+          <span class="repo-release" id="ver-backup-log-analyzer">v0.7.3</span>
           <span class="repo-badge live">Live</span>
         </div>
       </a>
@@ -971,7 +1084,27 @@ footer {
         </div>
         <div class="repo-meta">
           <span class="repo-lang"><span class="repo-lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="repo-release" id="ver-ppdm-capacity-planner">v1.0.1</span>
+          <span class="repo-release" id="ver-ppdm-capacity-planner">v1.0.2</span>
+        </div>
+      </a>
+
+      <!-- claude-plugins -->
+      <a href="https://github.com/Moodswing9/claude-plugins" target="_blank" class="repo-card">
+        <div class="repo-card-top">
+          <span class="repo-name">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 010-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"/></svg>
+            claude-plugins
+          </span>
+          <span class="repo-arrow">↗</span>
+        </div>
+        <p class="repo-desc">Claude Code plugin marketplace for all six Moodswing9 plugins. <code style="color:var(--accent);font-size:0.75rem;">claude plugin marketplace add Moodswing9/claude-plugins</code>, then <code style="color:var(--accent);font-size:0.75rem;">claude plugin install &lt;name&gt;@moodswing9</code>. Every plugin repo validates its manifest in CI.</p>
+        <div class="repo-tags">
+          <span class="repo-tag">Claude Code</span>
+          <span class="repo-tag">Marketplace</span>
+          <span class="repo-tag">Plugins</span>
+        </div>
+        <div class="repo-meta">
+          <span class="repo-lang"><span class="repo-lang-dot" style="background:#a855f7;"></span>JSON</span>
         </div>
       </a>
 
@@ -1003,7 +1136,7 @@ footer {
 
   <div class="stats">
     <div class="stat">
-      <span class="stat-num" id="stat-repos">9</span>
+      <span class="stat-num" id="stat-repos">10</span>
       <span class="stat-label">Public Repos</span>
     </div>
     <div class="stat">
