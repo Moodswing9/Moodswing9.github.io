@@ -30,6 +30,7 @@ Everything is in `index.html`. Structure:
 | Nav | Fixed top bar — logo + GitHub link |
 | Hero | Name, title, CTA buttons, avatar |
 | Featured Work | 5 project cards (backup-log-analyzer, networker-ppdm, claude-deck-generator, ppdm-es-troubleshooter, ppdm-watch) |
+| Install | Claude Code plugin marketplace commands (`Moodswing9/claude-plugins`) + list of the 6 plugins, with a copy button |
 | GitHub Repositories | Repo cards with tags and descriptions |
 | Stats bar | Live GitHub stats (repos, stars) fetched from GitHub API |
 | Footer | Links |
